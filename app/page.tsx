@@ -1,5 +1,5 @@
-import Link from "next/link"
-
-export default function IndexPage() {
+function IndexPage() {
   return <div></div>
 }
+
+export default IndexPage

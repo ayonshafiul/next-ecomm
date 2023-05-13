@@ -27,7 +27,7 @@ export default function Cart() {
         </div>
       </PopoverTrigger>
       <PopoverContent>
-        <ScrollArea className="h-72 rounded-md border p-4">
+        <ScrollArea className="h-72  border p-4">
           {cartItems.map((product) => {
             return (
               <div className="flex flex-row justify-between">

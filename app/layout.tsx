@@ -1,6 +1,6 @@
 import "@/styles/globals.css"
 import { Metadata } from "next"
-import { AuthProvider } from "@/context/AuthContext"
+import AuthProvider from "@/context/AuthContextProvider"
 import { CartProvider } from "@/context/CartContext"
 
 import { siteConfig } from "@/config/site"
@@ -43,15 +43,14 @@ export default function RootLayout({ children }: RootLayoutProps) {
           )}
         >
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-            <CartProvider>
-              <AuthProvider>
+            <AuthProvider>
+              <CartProvider>
                 <div className="relative flex min-h-screen flex-col">
                   <SiteHeader />
                   <div className="flex-1">{children}</div>
                 </div>
-                <TailwindIndicator />
-              </AuthProvider>
-            </CartProvider>
+              </CartProvider>
+            </AuthProvider>
           </ThemeProvider>
         </body>
       </html>
