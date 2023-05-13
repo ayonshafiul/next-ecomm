@@ -14,6 +14,7 @@ npm run dev
 
 ## Features
 
+- Fully Responsive Mobile and Desktop View
 - Dark theme / Light Theme
 - Sign Up / Sign In Screen
 - Home Page
