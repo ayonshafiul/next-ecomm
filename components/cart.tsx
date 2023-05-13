@@ -8,6 +8,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover"
+import { ScrollArea } from "@/components/ui/scroll-area"
 import { Separator } from "@/components/ui/separator"
 
 import { Icons } from "./icons"
@@ -26,14 +27,16 @@ export default function Cart() {
         </div>
       </PopoverTrigger>
       <PopoverContent>
-        {cartItems.map((product) => {
-          return (
-            <div className="flex flex-row justify-between">
-              <div>{product.title.slice(0, 10) + ".."}</div>
-              <div className="font-bold">$ {product.price.toFixed(2)}</div>
-            </div>
-          )
-        })}
+        <ScrollArea className="h-72 rounded-md border p-4">
+          {cartItems.map((product) => {
+            return (
+              <div className="flex flex-row justify-between">
+                <div>{product.title.slice(0, 10) + ".."}</div>
+                <div className="font-bold">$ {product.price.toFixed(2)}</div>
+              </div>
+            )
+          })}
+        </ScrollArea>
         <Separator className="my-4" />
         <div className="flex flex-row justify-between m-2">
           <div>Total: </div>
