@@ -1,11 +1,15 @@
-# next-template
+# Next E-commerce Demo
 
-A Next.js 13 template for building apps with Radix UI and Tailwind CSS.
+A Next.js 13 demo build with Shad/cn UI, tailwind css, context API, typescript
+
+## Live URL
+
+[https://next-ecomm-ayonshafiul.vercel.app/](https://next-ecomm-ayonshafiul.vercel.app/)
 
 ## Usage
 
 ```bash
-npx create-next-app -e https://github.com/shadcn/next-template
+npm run dev
 ```
 
 ## Features
