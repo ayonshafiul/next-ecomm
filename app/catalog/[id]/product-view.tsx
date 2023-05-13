@@ -1,12 +1,13 @@
 "use client"
 
 import Image from "next/image"
-import { Product } from "@/context/CartContext"
+import { Product, useCartContext } from "@/context/CartContext"
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 
 export default function ProductView({ product }: { product: Product }) {
+  const { addToCart } = useCartContext()
   return (
     <Card>
       <CardContent className="flex flex-row w-full  h-full justify-between gap-10 py-4">
@@ -25,7 +26,9 @@ export default function ProductView({ product }: { product: Product }) {
             Category: {product.category}
           </div>
           <div className="font-bold m-2 ">$ {product.price}</div>
-          <Button className="w-full">Add to cart</Button>
+          <Button className="w-full" onClick={() => addToCart(product)}>
+            Add to cart
+          </Button>
         </div>
       </CardContent>
     </Card>

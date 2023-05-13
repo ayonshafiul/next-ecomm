@@ -2,12 +2,14 @@
 
 import Image from "next/image"
 import Link from "next/link"
-import { Product } from "@/context/CartContext"
+import { Product, useCartContext } from "@/context/CartContext"
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 
 export default function ProductCard({ product }: { product: Product }) {
+  const { addToCart } = useCartContext()
+
   return (
     <Card>
       <CardContent className="flex flex-col  h-full justify-between py-4">
@@ -29,7 +31,7 @@ export default function ProductCard({ product }: { product: Product }) {
               View
             </Button>
           </Link>
-          <Button>Add to cart</Button>
+          <Button onClick={() => addToCart(product)}>Add to cart</Button>
         </div>
       </CardContent>
     </Card>

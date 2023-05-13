@@ -1,7 +1,6 @@
 "use client"
 
 import React, { ReactNode, createContext, useContext, useState } from "react"
-import { useLocalStorage } from "usehooks-ts"
 
 export type Auth = {
   userType: string
@@ -19,8 +18,8 @@ export const AuthContext = createContext<Auth>({
 export const useAuthContext = () => useContext(AuthContext)
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
-  const [userType, setUserType] = useLocalStorage("userType", "")
-  const [authToken, setAuthToken] = useLocalStorage("authToken", "")
+  const [userType, setUserType] = useState<string>("") // should use useLocalStorage to keep the token in localstorage but as of now that is not working!
+  const [authToken, setAuthToken] = useState<string>("token")
   return (
     <AuthContext.Provider
       value={{ userType, setUserType, authToken, setAuthToken }}

@@ -1,10 +1,18 @@
 "use client"
 
-import React, { ReactNode, createContext, useContext, useState } from "react"
+import React, {
+  ReactNode,
+  SetStateAction,
+  createContext,
+  useContext,
+  useState,
+} from "react"
 
 export type CartItems = {
   cartItems: Product[]
-  setCartItems: (product: Product[]) => void
+  setCartItems: (products: Product[]) => void
+  addToCart: (product: Product) => void
+  removeFromCart: (id: string) => void
 }
 
 export type Product = {
@@ -18,14 +26,26 @@ export type Product = {
 
 export const CartContext = createContext<CartItems>({
   cartItems: [],
-  setCartItems: (product: Product[]) => {},
+  setCartItems: (products: Product[]) => {},
+  addToCart: (product: Product) => {},
+  removeFromCart: (id: string) => {},
 })
 export const useCartContext = () => useContext(CartContext)
 
 export const CartProvider = ({ children }: { children: ReactNode }) => {
   const [cartItems, setCartItems] = useState<Product[]>([])
+  const addToCart = (product: Product) => {
+    setCartItems((prev) => {
+      return [...prev, product]
+    })
+    console.log(cartItems)
+  }
+
+  const removeFromCart = (id: string) => {}
   return (
-    <CartContext.Provider value={{ cartItems, setCartItems }}>
+    <CartContext.Provider
+      value={{ cartItems, setCartItems, addToCart, removeFromCart }}
+    >
       {children}
     </CartContext.Provider>
   )
