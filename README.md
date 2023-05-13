@@ -14,13 +14,12 @@ npm run dev
 
 ## Features
 
-- Radix UI Primitives
-- Tailwind CSS
-- Fonts with `next/font`
-- Icons from [Lucide](https://lucide.dev)
-- Dark mode with `next-themes`
-- Automatic import sorting with `@ianvs/prettier-plugin-sort-imports`
-- Tailwind CSS class sorting, merging and linting.
+- Dark theme / Light Theme
+- Sign Up / Sign In Screen
+- Home Page
+- Catalog Page
+- Cart
+- Checkout Page
 
 ## License
 
