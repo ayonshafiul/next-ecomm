@@ -1,6 +1,6 @@
 import CheckoutItems from "./checkout-items"
 
-export default function page() {
+export default function Checkout() {
   return (
     <div>
       <CheckoutItems />

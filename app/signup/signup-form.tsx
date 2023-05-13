@@ -1,7 +1,19 @@
 "use client"
 
 import Link from "next/link"
+import { useRouter } from "next/navigation"
 
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog"
 import { Button } from "@/components/ui/button"
 import {
   Card,
@@ -15,6 +27,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 
 export default function SignUpForm() {
+  const router = useRouter()
   return (
     <>
       <Card className="w-[350px]">
@@ -49,7 +62,32 @@ export default function SignUpForm() {
           </div>
         </CardContent>
         <CardFooter className="flex flex-col gap-2">
-          <Button className="w-full">Sign Up</Button>
+          <AlertDialog>
+            <AlertDialogTrigger asChild>
+              <Button className="w-full">Sign Up</Button>
+            </AlertDialogTrigger>
+            <AlertDialogContent>
+              <AlertDialogHeader>
+                <AlertDialogTitle>
+                  This is a simulated sign up.
+                </AlertDialogTitle>
+                <AlertDialogDescription>
+                  There is no functionality whatsoever. It is only for
+                  demonstration purposes only.
+                </AlertDialogDescription>
+              </AlertDialogHeader>
+              <AlertDialogFooter>
+                <AlertDialogCancel>Cancel</AlertDialogCancel>
+                <AlertDialogAction
+                  onClick={() => {
+                    router.push("/signin")
+                  }}
+                >
+                  Continue
+                </AlertDialogAction>
+              </AlertDialogFooter>
+            </AlertDialogContent>
+          </AlertDialog>
 
           <Link href="/signin" className="w-full">
             <Button className="w-full" variant="ghost">

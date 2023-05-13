@@ -6,9 +6,9 @@ import { AuthContext } from "./AuthContext"
 
 const AuthProvider = ({ children }: { children: any }) => {
   const [userType, setUserType] = useState<string>("") // should use useLocalStorage to keep the token in localstorage but as of now that is not working!
-  const [authToken, setAuthToken] = useState<string>("token")
+  const [authToken, setAuthToken] = useState<string>("")
   return (
-    <AuthContext.Provider value={{ userType, authToken }}>
+    <AuthContext.Provider value={{ userType, authToken, setAuthToken }}>
       {children}
     </AuthContext.Provider>
   )

@@ -3,28 +3,26 @@
 import Link from "next/link"
 import { useAuthContext } from "@/context/AuthContext"
 
-import Cart from "./cart"
 import { Button } from "./ui/button"
 
 export default function AuthButtons() {
-  const { authToken } = useAuthContext()
+  const { authToken, setAuthToken } = useAuthContext()
   return (
     <>
       {authToken == "" && (
-        <>
+        <div className="m-2 flex flex-row gap-2">
           <Link href="/signin">
             <Button>Sign In</Button>
           </Link>
           <Link href="/signup">
-            <Button>Sign UP</Button>
+            <Button>Sign Up</Button>
           </Link>
-        </>
+        </div>
       )}
-
       {authToken != "" && (
-        <>
-          <Cart />
-        </>
+        <div className="m-2 flex flex-row gap-2">
+          <Button onClick={() => setAuthToken("")}>Sign out</Button>
+        </div>
       )}
     </>
   )
