@@ -1,22 +1,16 @@
 "use client"
 
 import Image from "next/image"
+import Link from "next/link"
 import { Product } from "@/context/CartContext"
 
 import { Button } from "@/components/ui/button"
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card"
+import { Card, CardContent } from "@/components/ui/card"
 
 export default function ProductCard({ product }: { product: Product }) {
   return (
     <Card>
-      <CardContent>
+      <CardContent className="flex flex-col  h-full justify-between py-4">
         <div className="flex justify-center items-center w-full">
           <Image
             src={product.image}
@@ -27,13 +21,17 @@ export default function ProductCard({ product }: { product: Product }) {
             style={{ width: "100%", height: "auto" }}
           />
         </div>
-      </CardContent>
-      <CardFooter>
         <div className="grid grid-cols-1 gap-2 m-2 w-full">
-          <Button variant={"ghost"}>View</Button>
+          <div className="font-bold">{product.title}</div>
+          <div className="font-bold text-center">$ {product.price}</div>
+          <Link href={`/catalog/${product.id}`} className="w-full">
+            <Button variant={"ghost"} className="w-full">
+              View
+            </Button>
+          </Link>
           <Button>Add to cart</Button>
         </div>
-      </CardFooter>
+      </CardContent>
     </Card>
   )
 }

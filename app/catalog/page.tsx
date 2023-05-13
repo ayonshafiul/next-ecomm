@@ -16,7 +16,7 @@ export default async function CatalogPage() {
   const data = await getData()
   console.log(data)
   return (
-    <div className="grid grid-flow-row-dense grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 m-2">
+    <div className="grid grid-flow-row-dense grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4 m-2">
       {data.map((product: Product) => (
         <ProductCard product={product} />
       ))}
